@@ -5,6 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
+.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.tabs.position('bottom');
+})
+
 .controller('TodoController', function($scope, 
   $ionicPopup, $ionicListDelegate) {
   $scope.tasks = 
