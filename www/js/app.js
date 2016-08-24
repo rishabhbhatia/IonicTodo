@@ -36,6 +36,11 @@ angular.module('starter', ['ionic'])
         $scope.artists.splice(fromIndex, 1);
         $scope.artists.splice(toIndex, 0, artist);
       };
+
+      $scope.deleteItem = function(artist) {
+        console.log('popping the shit out of it');
+        $scope.artists.splice($scope.artists.indexOf(artist), 1);  
+      };
     });
 }]);
 

@@ -168,9 +168,11 @@
          -->
 
          <ion-header-bar class="bar-dark">
+         <button class="button button-icon ion-minus-circled"
+            ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
           <h2 class="title">Artist List</h2>
           <button class="button button-icon ion-navicon"
-            ng-click="data.showReorder = !data.showReorder"></button>
+            ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
          </ion-header-bar>
 
          <div class="bar bar-subheader item-input-inset bar-light">
@@ -181,7 +183,7 @@
          </div>
 
          <ion-content class="has-subheader" >
-           <ion-list show-reorder="data.showReorder">
+           <ion-list show-reorder="data.showReorder" show-delete="data.showDelete">
             <ion-item ng-repeat="artist in artists | filter: query" 
                 class="item-avatar item-text-wrap">
 
@@ -192,6 +194,7 @@
               {{artist.description.length > 100 ? '&hellip;' : ''}}</p>
               <ion-reorder-button class="ion-navicon" on-reorder="moveItem(artist, $fromIndex,
                 $toIndex)"></ion-reorder-button>
+                <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(artist)"></ion-delete-button>
             </ion-item>
            </ion-list>
          </ion-content>
