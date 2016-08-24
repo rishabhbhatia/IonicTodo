@@ -1,0 +1,180 @@
+
+  <!-- <ion-header-bar class="bar-balanced">
+  <button class = "button button-icon icon icon-left ion-navicon">
+  </button>
+  <h1 class="title">Ionic Bulla</h1>
+  <button class = "button button-icon icon ion-compose icon" ng-click="createNewTask()">
+  </button>
+  </ion-header-bar>
+  <ion-content class="has-tabs-bottom">
+
+  <div class="list list-card padding hide">
+
+  <div class="item item-divider">
+  Goodmorning Mr. Rishabh
+  </div>
+  <div class="item item-avatar item-text-wrap">
+  <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAXvAAAAJGMxYWMwYjg4LWE1OTAtNGQ2Mi05ZmY2LWQyZTRlZmRjMGY1ZA.jpg">
+  <h2>3 Urgent Task remain. Pay attention now!!</h2>
+  </div>
+  <div class="item item-image item-body hide">
+  <img src="http://www.hindustantimes.com/rf/image_size_800x600/HT/p2/2016/08/20/Pictures/_8684dcf2-66c7-11e6-b372-5e31f535a023.JPG" alt="http://placehold.it/600x200">
+  </div>
+
+  </div>
+   <ion-list class="hide">
+   <div class="item item-divider padding">
+    URGENT
+   </div>
+     <ion-item ng-repeat="task in tasks"
+     class="item-icon-left item-icon-right"
+     ng-class="{complete: task.completed}"
+     ng-click="task.completed = !task.completed"
+     >
+     <i class="icon ion-alert"></i>
+     <i class="icon ion-ios-arrow-left"></i>
+     <ion-option-button class="button-assertive" ng-click="tasks.splice($index, 1)">
+     Remove
+     </ion-option-button>
+     <ion-option-button class="button-energized" ng-click="editTask(task)">
+     Edit
+     </ion-option-button>
+     {{task.title}}
+     </ion-item>
+   </ion-list>
+
+  <div class="padding">
+   <ion-list class="list-inset">
+
+   <label class="item item-input">
+   <span class="input-label">First Name</span>
+   <input type="text" name="firstname" placeholder="Example: Rishabh, Anurag, Sahil etc.">
+   </label>
+
+   <label class="item item-input">
+   <span class="input-label">Last Name</span>
+   <input type="text" name="lastname" placeholder="Example: Bhatia, Pandey, Sharma etc.">
+   </label>
+
+   <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Email Address">
+    </label>
+    <button class="button button-small button-positive">
+      Check Availability
+    </button>
+  </div>
+
+  <div class="item item-divider padding">
+   <h2>Select Your God</h2> 
+  </div>
+
+  <div class="item item-checkbox">
+    <label class="checkbox">
+      <input type="checkbox" name="onecheckbox">
+    </label>
+    <span>Rishabh</span>
+  </div>
+
+  <div class="item item-checkbox">
+    <label class="checkbox">
+      <input type="checkbox" name="twocheckbox">
+    </label>
+    <span>Bhatia</span>
+  </div>
+
+
+  <div class="item item-toggle"> 
+  <h2>Self obsessed</h2>    
+    <label class="toggle toggle-positive">
+     <input type="checkbox">
+     <div class="track">
+       <div class="handle"></div>
+     </div>
+    </label>
+  </div>
+
+  <div class="item item-toggle"> 
+  <h2>Handsome</h2>
+    <label class="toggle toggle-positive">
+     <input type="checkbox">
+     <div class="track">
+       <div class="handle"></div>
+     </div>
+    </label>
+  </div>
+
+  <div class="item range range-positive">
+    <i class="icon ion-sad-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="10">
+    <i class="icon ion-happy-outline"></i>
+   </div>
+
+   <label class="item item-input item-select">
+    <div class="input-label">
+      Favourite color
+    </div>
+    <select>
+      <option>Blue</option>
+      <option>Green</option>
+      <option>Red</option>
+    </select>
+  </label>
+
+  <label class="item item-input padding">
+   <textarea placeholder="Comments"></textarea>
+  </label>
+
+   </ion-list>
+  </div>
+  </ion-content>
+  <ion-tabs class="tabs-icon-top">
+    <ion-tab badge="3" badge-style="badge-assertive" title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline">
+      Home
+    </ion-tab>
+
+    <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+    </ion-tab>
+
+    <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+    </ion-tab>
+  </ion-tabs>
+   -->
+
+   <ion-header-bar class="bar-positive">
+   <button class="button button-icon ion-minus-circled"
+      ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
+    <h2 class="title">Artist List</h2>
+    <button class="button button-icon ion-navicon"
+      ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
+   </ion-header-bar>
+
+   <div class="bar bar-subheader item-input-inset bar-light">
+     <label class="item-input-wrapper">
+       <i class="icon ion-search placeholder-icon"></i>
+       <input type="search" ng-model="query" name="search" placeholder="Search">
+     </label>
+   </div>
+
+   <ion-content class="has-subheader" ng-controller="ArtistController" >
+     <ion-list show-reorder="data.showReorder" show-delete="data.showDelete">
+      <ion-item ng-repeat="artist in artists | filter: query" 
+          class="item-thumbnail-left item-icon-right item-text-wrap">
+
+        <img ng-src="img/{{artist.shortname}}_tn.jpg" alt="{{artist.artist}} Photo">
+        <h2>{{artist.title}}</h2>
+        <h3>{{artist.room}}</h3>
+        <p>{{artist.description | limitTo: 100}}
+        {{artist.description.length > 100 ? '&hellip;' : ''}}</p>
+        <button class="button button-clear icon ion-star" ng-click="toggleFavState(artist)"
+         ng-show="artist.star"></button>
+          <ion-option-button class="icon ion-star button-assertive" ng-click="toggleFavState(artist)">
+          </ion-option-button>
+
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(artist, $fromIndex,
+          $toIndex)"></ion-reorder-button>
+          <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(artist)"></ion-delete-button>
+      </ion-item>
+     </ion-list>
+   </ion-content>
+

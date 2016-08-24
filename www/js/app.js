@@ -5,10 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.config(function($ionicConfigProvider) {
-    $ionicConfigProvider.tabs.position('bottom');
-})
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -27,6 +23,28 @@ angular.module('starter', ['ionic'])
   });
 })
 
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('bottom');
+
+    $stateProvider
+    .state('tabs', {
+        url: '/tab',
+        abstract: true,
+        templateUrl: 'templates/tabs.html'
+    })
+    .state('tabs.list', {
+      url: '/list',
+      views: {
+        'list-tab': {
+          templateUrl: 'templates/list.html',
+          controller: 'ArtistController'
+        }
+      }
+    })
+    $urlRouterProvider.otherwise('/tab/list');
+})
+
 .controller('ArtistController', [ "$scope" , "$http" ,function($scope, $http) {
     $http.get("js/data.json").success(function(data) {
       $scope.artists = data;
@@ -41,6 +59,11 @@ angular.module('starter', ['ionic'])
         console.log('popping the shit out of it');
         $scope.artists.splice($scope.artists.indexOf(artist), 1);  
       };
+
+      $scope.toggleFavState = function(artist) {
+        console.log('toggle artist fav state');
+        artist.star = !artist.star;
+      }
     });
 }]);
 
