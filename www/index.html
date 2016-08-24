@@ -32,12 +32,31 @@
         </button>
       </ion-header-bar>
       <ion-content class="has-tabs-bottom">
+
+      <div class="list list-card padding">
+
+      <div class="item item-divider">
+        Goodmorning Mr. Rishabh
+      </div>
+      <div class="item item-avatar item-text-wrap">
+      <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAXvAAAAJGMxYWMwYjg4LWE1OTAtNGQ2Mi05ZmY2LWQyZTRlZmRjMGY1ZA.jpg">
+      <h2>3 Urgent Task remain. Pay attention now!!</h2>
+      </div>
+      <div class="item item-image hide">
+        <img src="http://www.hindustantimes.com/rf/image_size_800x600/HT/p2/2016/08/20/Pictures/_8684dcf2-66c7-11e6-b372-5e31f535a023.JPG" alt="http://placehold.it/600x200">
+      </div>
+        
+      </div>
          <ion-list>
+         <div class="item item-divider padding">
+          URGENT
+         </div>
            <ion-item ng-repeat="task in tasks"
-           class="item-icon-right"
+           class="item-icon-left item-icon-right"
            ng-class="{complete: task.completed}"
-           ng-click="task.completed = !task.completed" 
+           ng-click="task.completed = !task.completed"
            >
+           <i class="icon ion-alert"></i>
            <i class="icon ion-ios-arrow-left"></i>
            <ion-option-button class="button-assertive" ng-click="tasks.splice($index, 1)">
            Remove
