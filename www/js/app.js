@@ -33,6 +33,16 @@ angular.module('starter', ['ionic'])
         abstract: true,
         templateUrl: 'templates/tabs.html'
     })
+
+     .state('tabs.home', {
+      url: '/home',
+      views: {
+        'home-tab': {
+          templateUrl: 'templates/home.html'
+        }
+      }
+    })
+
     .state('tabs.list', {
       url: '/list',
       views: {
@@ -42,12 +52,26 @@ angular.module('starter', ['ionic'])
         }
       }
     })
-    $urlRouterProvider.otherwise('/tab/list');
+
+    .state('tabs.detail', {
+      url: '/list/:artistId',
+      views: {
+        'list-tab': {
+          templateUrl: 'templates/detail.html',
+          controller: 'ArtistController'
+        }
+      }
+    })
+
+    $urlRouterProvider.otherwise('/tab/home');
 })
 
-.controller('ArtistController', [ "$scope" , "$http" ,function($scope, $http) {
+.controller('ArtistController', [ "$scope" , "$http", "$state" ,
+  function($scope, $http, $state) {
     $http.get("js/data.json").success(function(data) {
       $scope.artists = data;
+      $scope.whichArtist = $state.params.artistId;
+      $scope.data = { showDelete: false, showReorder: false };
 
       $scope.moveItem = function(artist, fromIndex, toIndex) {
         console.log('hello '+fromIndex+"  " +toIndex);

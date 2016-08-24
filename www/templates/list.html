@@ -141,13 +141,19 @@
   </ion-tabs>
    -->
 
-   <ion-header-bar class="bar-positive">
-   <button class="button button-icon ion-minus-circled"
-      ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
-    <h2 class="title">Artist List</h2>
+  <ion-view view-title="Artist List">
+
+  <ion-nav-buttons side="primary">
+    <button class="button button-icon ion-minus-circled"
+      ng-click="data.showDelete = !data.showDelete; data.showReorder = false;">
+    </button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
     <button class="button button-icon ion-navicon"
-      ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
-   </ion-header-bar>
+      ng-click="data.showReorder = !data.showReorder; data.showDelete = false;">
+    </button>
+  </ion-nav-buttons>
 
    <div class="bar bar-subheader item-input-inset bar-light">
      <label class="item-input-wrapper">
@@ -159,7 +165,8 @@
    <ion-content class="has-subheader" ng-controller="ArtistController" >
      <ion-list show-reorder="data.showReorder" show-delete="data.showDelete">
       <ion-item ng-repeat="artist in artists | filter: query" 
-          class="item-thumbnail-left item-icon-right item-text-wrap">
+          class="item-thumbnail-left item-icon-right item-text-wrap"
+          href="#tab/list/{{artist.shortname}}">
 
         <img ng-src="img/{{artist.shortname}}_tn.jpg" alt="{{artist.artist}} Photo">
         <h2>{{artist.title}}</h2>
@@ -177,4 +184,6 @@
       </ion-item>
      </ion-list>
    </ion-content>
+ </ion-view>    
+
 
