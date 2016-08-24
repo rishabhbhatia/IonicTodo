@@ -33,7 +33,7 @@
       </ion-header-bar>
       <ion-content class="has-tabs-bottom">
 
-      <div class="list list-card padding">
+      <div class="list list-card padding hide">
 
       <div class="item item-divider">
         Goodmorning Mr. Rishabh
@@ -42,12 +42,12 @@
       <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAXvAAAAJGMxYWMwYjg4LWE1OTAtNGQ2Mi05ZmY2LWQyZTRlZmRjMGY1ZA.jpg">
       <h2>3 Urgent Task remain. Pay attention now!!</h2>
       </div>
-      <div class="item item-image hide">
+      <div class="item item-image item-body hide">
         <img src="http://www.hindustantimes.com/rf/image_size_800x600/HT/p2/2016/08/20/Pictures/_8684dcf2-66c7-11e6-b372-5e31f535a023.JPG" alt="http://placehold.it/600x200">
       </div>
         
       </div>
-         <ion-list>
+         <ion-list class="hide">
          <div class="item item-divider padding">
           URGENT
          </div>
@@ -67,9 +67,76 @@
            {{task.title}}
            </ion-item>
          </ion-list>
+
+        <div class="padding">
+         <ion-list class="list-inset">
+
+         <label class="item item-input">
+         <span class="input-label">First Name</span>
+         <input type="text" name="firstname" placeholder="Example: Rishabh, Anurag, Sahil etc.">
+         </label>
+
+         <label class="item item-input">
+         <span class="input-label">Last Name</span>
+         <input type="text" name="lastname" placeholder="Example: Bhatia, Pandey, Sharma etc.">
+         </label>
+
+         <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Email Address">
+          </label>
+          <button class="button button-small button-positive">
+            Check Availability
+          </button>
+        </div>
+
+        <div class="item item-divider padding">
+         <h2>Select Your God</h2> 
+        </div>
+
+        <div class="item item-checkbox">
+          <label class="checkbox">
+            <input type="checkbox" name="onecheckbox">
+          </label>
+          <span>Rishabh</span>
+        </div>
+
+        <div class="item item-checkbox">
+          <label class="checkbox">
+            <input type="checkbox" name="twocheckbox">
+          </label>
+          <span>Bhatia</span>
+        </div>
+
+        <label class="item item-input padding">
+         <textarea placeholder="Comments"></textarea>
+        </label>
+
+        <div class="item item-toggle"> 
+        <h2>Self obsessed</h2>    
+          <label class="toggle toggle-positive">
+           <input type="checkbox">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+          </label>
+        </div>
+
+        <div class="item item-toggle"> 
+        <h2>Poor</h2>    
+          <label class="toggle toggle-positive">
+           <input type="checkbox">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+          </label>
+        </div>
+
+         </ion-list>
+        </div>
       </ion-content>
        <ion-tabs class="tabs-icon-top">
-          <ion-tab badge="4" badge-style="badge-assertive" title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline">
+          <ion-tab badge="3" badge-style="badge-assertive" title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline">
             Home
           </ion-tab>
 
