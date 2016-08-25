@@ -169,10 +169,10 @@
           href="#tab/list/{{artist.shortname}}">
 
         <img ng-src="img/{{artist.shortname}}_tn.jpg" alt="{{artist.artist}} Photo">
-        <h2>{{artist.title}}</h2>
-        <h3>{{artist.room}}</h3>
-        <p>{{artist.description | limitTo: 100}}
-        {{artist.description.length > 100 ? '&hellip;' : ''}}</p>
+        <h2>{{artist.name}}</h2>
+        <h3>{{artist.reknown}}</h3>
+        <p>{{artist.bio | limitTo: 100}}
+        {{artist.bio.length > 100 ? '&hellip;' : ''}}</p>
         <button class="button button-clear icon ion-star" ng-click="toggleFavState(artist)"
          ng-show="artist.star"></button>
           <ion-option-button class="icon ion-star button-assertive" ng-click="toggleFavState(artist)">

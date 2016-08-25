@@ -69,7 +69,7 @@ angular.module('starter', ['ionic'])
 .controller('ArtistController', [ "$scope" , "$http", "$state" ,
   function($scope, $http, $state) {
     $http.get("js/data.json").success(function(data) {
-      $scope.artists = data;
+      $scope.artists = data.artists;
       $scope.whichArtist = $state.params.artistId;
       $scope.data = { showDelete: false, showReorder: false };
 
