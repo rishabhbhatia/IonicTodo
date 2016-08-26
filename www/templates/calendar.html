@@ -30,7 +30,12 @@
    			 		<p>{{item.description}}</p>
 
    			 		<button class="button button-clear icon ion-star" ng-click="toggleFavState(item)"
-         			ng-show="item.star"></button>	
+         			ng-show="item.star"></button>
+
+         			 <ion-option-button class="button-calm" ng-click="toggleFavState(item)"><i class="icon ion-star"></i>
+         			 </ion-option-button>
+         			 <ion-option-button class="button-assertive" ng-click="deleteItem(dayIndex, item)"><i class="icon ion-trash-a"></i>
+         			 </ion-option-button>	
 
    			 	</ion-item>
    			 </ion-list>
