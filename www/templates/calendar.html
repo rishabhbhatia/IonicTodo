@@ -22,7 +22,7 @@
    			 <ion-list>
    			 	<ion-item ng-class="{'item-avatar': item.shortname,
    			 	 	'star': item.star}"
-   			 		class="item-text-wrap item-icon-right" ng-repeat="item in day.schedule | filter: query" href="#">
+   			 		class="item-text-wrap item-icon-right" ng-repeat="item in day.schedule | filter: query">
    			 		<img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="Photo">
    			 		<h2>{{item.time}}</h2>
    			 		<h3>{{item.title}}</h3>
