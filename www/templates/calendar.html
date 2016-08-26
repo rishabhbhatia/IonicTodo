@@ -18,6 +18,22 @@
    			 	<h2>{{day.title}}</h2>
    			 	<p>{{day.description}}</p>
    			 </div>
+
+   			 <ion-list>
+   			 	<ion-item ng-class="{'item-avatar': item.shortname,
+   			 	 	'star': item.star}"
+   			 		class="item-text-wrap item-icon-right" ng-repeat="item in day.schedule | filter: query" href="#">
+   			 		<img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="Photo">
+   			 		<h2>{{item.time}}</h2>
+   			 		<h3>{{item.title}}</h3>
+   			 		<h4>{{item.artist ? 'with' + item.artist : '' }}</h4>
+   			 		<p>{{item.description}}</p>
+
+   			 		<button class="button button-clear icon ion-star" ng-click="toggleFavState(item)"
+         			ng-show="item.star"></button>	
+
+   			 	</ion-item>
+   			 </ion-list>
    		</div>
    </ion-content>
 </ion-view>

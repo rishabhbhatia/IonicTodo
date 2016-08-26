@@ -164,23 +164,23 @@
 
    <ion-content class="has-subheader" ng-controller="ArtistController" >
      <ion-list show-reorder="data.showReorder" show-delete="data.showDelete">
-      <ion-item ng-repeat="artist in artists | filter: query" 
+      <ion-item ng-repeat="item in artists | filter: query" 
           class="item-thumbnail-left item-icon-right item-text-wrap"
-          href="#tab/list/{{artist.shortname}}">
+          href="#tab/list/{{item.shortname}}">
 
-        <img ng-src="img/{{artist.shortname}}_tn.jpg" alt="{{artist.artist}} Photo">
-        <h2>{{artist.name}}</h2>
-        <h3>{{artist.reknown}}</h3>
-        <p>{{artist.bio | limitTo: 100}}
-        {{artist.bio.length > 100 ? '&hellip;' : ''}}</p>
-        <button class="button button-clear icon ion-star" ng-click="toggleFavState(artist)"
-         ng-show="artist.star"></button>
-          <ion-option-button class="icon ion-star button-assertive" ng-click="toggleFavState(artist)">
+        <img ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.artist}} Photo">
+        <h2>{{item.name}}</h2>
+        <h3>{{item.reknown}}</h3>
+        <p>{{item.bio | limitTo: 100}}
+        {{item.bio.length > 100 ? '&hellip;' : ''}}</p>
+        <button class="button button-clear icon ion-star" ng-click="toggleFavState(item)"
+         ng-show="item.star"></button>
+          <ion-option-button class="icon ion-star button-assertive" ng-click="toggleFavState(item)">
           </ion-option-button>
 
-        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(artist, $fromIndex,
+        <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex,
           $toIndex)"></ion-reorder-button>
-          <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(artist)"></ion-delete-button>
+          <ion-delete-button class="ion-minus-circled" ng-click="deleteItem(item)"></ion-delete-button>
       </ion-item>
      </ion-list>
    </ion-content>
